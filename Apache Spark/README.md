@@ -15,7 +15,9 @@ Apache Spark is a multi-language engine for executing data engineering, data sci
 
 1. Open the `bashrc` file using youtr preferred text editor via command line, `sudo gedit ~/.bashrc`.
 2. Add the following information to the file and save it. The information will enable us to accessing spark command everywhere.
+
 ![bashrc-spark](/img/bashrc-spark.png)
+
 3. Make a final change by typing `source ./bashrc`.
 
 ## How to run Spark
@@ -26,3 +28,18 @@ Open Spark by using one of this following command in the terminal:
 - `sparkR` to run Spark with R language.
 - `spark-sql` to run queries using SQL.
 - `spark-submit` to run Spark application, either a Python file or JAR file.
+
+## Running PySpark on Jupyter Notebook
+
+In the shell, install `findspark` by typing `pip install findspark`. After the installation finished, open Jupyter Notebook and write the following code in the first cell.
+
+```python
+import findspark
+
+findspark.find()
+findspark.init()
+```
+
+The `findspark.find()` command will find a local spark installation e.g. `$SPARK_HOME`, and print it.
+
+While the `findspark.init()` command initialize the spark by adding pyspark to `sys.path`, thus make pyspark importable. More details of `findspark` package can be seen using `help(findspark)`.
