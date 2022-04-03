@@ -36,3 +36,39 @@ tar -xf ~/Downloads/google-cloud-sdk-379.0.0-linux-x86.tar.gz
 ```bash
 gcloud cheat-sheet
 ```
+
+## Create SSH keys
+
+Steps to create an SSH key pair for communicating with virtual machine instances without using gcloud command
+
+Open a terminal and use the `ssh-keygen` command with the `-C` flag to create a new SSH key pair.
+
+```bash
+ssh-keygen -t rsa -f ~/.ssh/KEY_FILENAME -C USER -b 2048
+```
+
+Replace the following:
+* `KEY_FILENAME`: name of your SSH key file.
+
+    For example, a filename of `my-key` generates a private key name `my-key` and a public key file named `my-key.pub`.
+
+* `USER`: your username. For example, `linuxuser@gmail.com` or `linuxuser`.
+
+Check the generated file,
+
+```bash
+cd ~/.ssh
+```
+
+There are two files with the same name, except the other one has extension `.pub`, e.g. `my-key` and `my-key.pub`.
+
+To use the key to communicate with remote instance, type
+
+```bash
+ssh -i ~/.ssh/KEY_FILENAME USER@IP_ADDRESS
+```
+
+For example,
+```bash
+ssh -i ~/.ssh/my-key linuxuser@35.184.156.226
+```
