@@ -5,37 +5,47 @@ The steps written below are those who uses Linux OS. All steps are sourced from 
 
 1. Download Google Cloud SDK for Linux 64-bit (x86_64).
 
-```bash
-curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-379.0.0-linux-x86_64.tar.gz
-```
+    ```bash
+    curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-379.0.0-linux-x86_64.tar.gz
+    ```
 
 
 2. Extract the contents to your home directory.
-```bash
-cd ~
-tar -xf ~/Downloads/google-cloud-sdk-379.0.0-linux-x86.tar.gz
-```
+    ```bash
+    cd ~
+    tar -xf ~/Downloads/google-cloud-sdk-379.0.0-linux-x86.tar.gz
+    ```
 
 3. Use the install script to add the gcloud CLI tools to your `PATH`.
 
-```bash
-./google-cloud-sdk/install.sh
-```
+    ```bash
+    ./google-cloud-sdk/install.sh
+    ```
+
 4. Answer `Y` when prompted to every question in the terminal. Then, open a new terminal so that the changes take effect.
 
 5. Initialize the gcloud CLI by running `gcloud init`.
 
-```bash
-./google-cloud-sdk/bin/gcloud init
-```
+    ```bash
+    ./google-cloud-sdk/bin/gcloud init
+    ```
 
 6. *(Optional)* Install additional components using the [component manager](https://cloud.google.com/sdk/docs/managing-components).
 
 7. To display gcloud cheat sheet, run:
 
-```bash
-gcloud cheat-sheet
+    ```bash
+    gcloud cheat-sheet
+    ```
+    
+## Set default project
+
+Set the default configuration for gcloud, by typing
+
 ```
+gcloud config set project PROJECT_ID
+```
+
 
 ## Create SSH keys
 
@@ -48,11 +58,11 @@ ssh-keygen -t rsa -f ~/.ssh/KEY_FILENAME -C USER -b 2048
 ```
 
 Replace the following:
-* `KEY_FILENAME`: name of your SSH key file.
+* `KEY_FILENAME` : name of your SSH key file.
 
     For example, a filename of `my-key` generates a private key name `my-key` and a public key file named `my-key.pub`.
 
-* `USER`: your username. For example, `linuxuser@gmail.com` or `linuxuser`.
+* `USER` : your username. For example, `linuxuser@gmail.com` or `linuxuser`.
 
 Check the generated file,
 
@@ -60,7 +70,7 @@ Check the generated file,
 cd ~/.ssh
 ```
 
-There are two files with the same name, except the other one has extension `.pub`, e.g. `my-key` and `my-key.pub`.
+There are two files with the same name except the other one has the extension `.pub`, e.g. `my-key` and `my-key.pub`.
 
 To use the key to communicate with remote instance, type
 
